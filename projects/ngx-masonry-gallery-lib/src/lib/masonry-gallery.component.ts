@@ -28,6 +28,7 @@ export class MasonryGalleryComponent
     @Input() gutter: number = 5;
     @Input() verticalGutter: number = 5;
     @Input() imageClasses: string[] = [];
+    @Input() isFitWidth = false;
 
     @Output() clickImage = new EventEmitter<IMasonryGalleryImage>();
     @Output() removeComplete = new EventEmitter<any[]>();
@@ -170,6 +171,7 @@ export class MasonryGalleryComponent
 
         this.msnry = new masonry(this.grid, {
             // options...
+            isFitWidth: this.isFitWidth,
             itemSelector: '.' + this.mansonryItemSelectorClass,
             columnWidth: this.width,
             gutter: this.gutter,
